@@ -35,7 +35,7 @@
 
 ## Overview
 
-The slackbot to end all slackbots
+BrushTail monitors the politeness of a conversations and provides real-time feedback via comments and reactions.
 
 ## Installing
 
@@ -48,105 +48,11 @@ then /invite @Brushtail on any channels you would like him to participate in.
 
 ## Deploying from source
 
-    sls deploy -s prod
+1. Follow the steps [here](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) to configure your AWS account in the terminal
+2. `npm install -g serverless`
+3. `sls deploy -s prod --foxtype your_foxtype_key --token your_slack_token --secret your_slack_oauth-secret`
+4. enjoy
     
-## invoking
-
-    sls invoke -f toSlack -s prod -p ./toSlack.json
-    
-## logging
-
-Either in the AWS console or
-
-    sls logs -f toFoxType -s prod
-    
-## Dynamo
-
-Communicate with dynamo via the AWS-dynamo module
-
-See: https://www.npmjs.com/package/dynamodb
-
-    'use strict';
-    
-    var doc = require('dynamodb-doc');
-    var dynamo = new doc.DynamoDB();
-    
-    // Require Serverless ENV vars
-    var ServerlessHelpers = require('serverless-helpers-js').loadEnv();
-    
-    // Require Logic
-    var lib = require('../lib');
-    
-    // Lambda Handler
-    module.exports.handler = function(event, context) {
-      console.log('Received event:',JSON.stringify(event,null,2));
-      console.log('Context:',JSON.stringify(context,null,2));
-    
-      var operation = event.operation;
-      if(event.tableName) {
-        event.payload.TableName = event.tableName;
-      }
-    
-      switch(operation) {
-        case 'create':
-          var uuid = require('node-uuid');
-          event.payload.Item.postId = uuid.v1();
-          dynamo.putItem(event.payload,context.succeed({"postId":event.payload.Item.postId}));
-          break;
-        case 'read':
-          dynamo.getItem(event.payload,context.done);
-          break;
-        case 'update':
-          dynamo.updateItem(event.payload, context.done);
-          break;
-        case 'delete':
-          dynamo.deleteItem(event.payload, context.done);
-          break;
-        case 'list':
-            dynamo.scan(event.payload, context.done);
-            break;
-        default:
-            context.fail(new Error('Unrecognized operation "' + operation + '"'));
-      }
-    
-    };
-    
-[more.](https://gist.github.com/apaatsio/f9f2b408fe02e415629f)
-[even more.](https://github.com/markusklems/serverless-node-dynamodb-example)
-    
-## Communication
-
-### AWS API
-
-    var aws = require('aws-sdk');
-    var lambda = new aws.Lambda({
-        region: 'ap-southeast-2' //change to your region
-    });
-    
-    lambda.invoke({
-        FunctionName: 'toSlack',
-        Payload: JSON.stringify(event, null, 2) // pass params
-    }, function (error, data) {
-        if (error) {
-            cb(error);
-            // context.done('error', error);
-        }
-        if (data.Payload) {
-            cb(null, data.Payload);
-            // context.succeed(data.Payload)
-        }
-    });
-
-
-### Html
-
-Expose endpoint in function
-
-      - http:
-          path: message/send
-          method: post
-          cors: true
-
 
 ## Team
 
