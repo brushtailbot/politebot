@@ -1,9 +1,10 @@
 # BrushTail
-[![AppVeyor](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg?maxAge=2592000?style=flat-square)]()
-[![Codecov branch](https://img.shields.io/codecov/c/github/codecov/example-python/master.svg?maxAge=2592000?style=flat-square)]()
-[![PyPI](https://img.shields.io/pypi/dw/Django.svg?maxAge=2592000?style=flat-square)]()
+<a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,chat:write:user,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read&client_id=2437318132.83678354932">
+    <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+    </a>
+
+![AppVeyor](https://img.shields.io/badge/serverless%3F-yes-green.svg)
 [![](https://img.shields.io/badge/awesome%3F-yes-red.svg)][vote]
-[![](https://img.shields.io/badge/documentation-etc-red.svg?style=flat-square)][doc]
 
 [travis]: https://travis-ci.org/b4b4r07/dotfiles
 [license]: ./doc/LICENSE-MIT.txt
@@ -36,7 +37,16 @@
 
 The slackbot to end all slackbots
 
-## deploying
+## Installing
+
+To add to your own slack team press  <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,chat:write:user,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read&client_id=2437318132.83678354932">
+    <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+    </a>
+
+
+then /invite @Brushtail on any channels you would like him to participate in.
+
+## Deploying from source
 
     sls deploy -s prod
     
@@ -101,8 +111,8 @@ See: https://www.npmjs.com/package/dynamodb
     
     };
     
-More: https://gist.github.com/apaatsio/f9f2b408fe02e415629f
-https://github.com/markusklems/serverless-node-dynamodb-example
+[more.](https://gist.github.com/apaatsio/f9f2b408fe02e415629f)
+[even more.](https://github.com/markusklems/serverless-node-dynamodb-example)
     
 ## Communication
 
@@ -137,13 +147,9 @@ Expose endpoint in function
           method: post
           cors: true
 
-### SQS
-
-No idea
-
 
 ## Team
 
-[<img alt="henry" src="https://avatar-cdn.atlassian.com/default/96" width="117">](https://www.google.com) |[<img alt="paul" src="https://avatar-cdn.atlassian.com/default/96" width="117">](https://www.google.com) |[<img alt="james" src="https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2015/Jul/21/1981462265-5-sidewaiise-avatar.png" width="117">](https://www.google.com)
+[<img alt="henry" src="https://avatars3.githubusercontent.com/u/5061604?v=3&s=466" width="117">](https://github.com/henrystevens) |[<img alt="paul" src="https://pbs.twimg.com/profile_images/596420075818586112/2OL4JoPF.jpg" width="117">](https://www.google.com) |[<img alt="james" src="https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2015/Jul/21/1981462265-5-sidewaiise-avatar.png" width="117">](https://www.google.com)
 :---: |:---: |:---: |:---: |:---: |:---: |
-[Henry Stevens](https://www.google.com) |[Paul Robinson](https://www.google.com) |[James Limmer](https://www.google.com) 
+[Henry Stevens](https://github.com/henrystevens) |[Paul Robinson](https://www.google.com) |[James Limmer](https://www.google.com) 
