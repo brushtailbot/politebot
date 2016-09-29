@@ -31,7 +31,7 @@ module.exports.sendData = (event, context) => {
       console.log('This team has no access token')
       return
     }
-    let slack = new Slack(data.Item.access_token)
+    let slack = new Slack(data.Item.bot_access_token)
 
     // Messaging service
     slack.api(event.slackCommand, event.body, (err, res) => {
