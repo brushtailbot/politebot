@@ -13,7 +13,7 @@
 [bitdeli]: https://bitdeli.com/free
 [dotfiles]: http://b4b4r07.com/dotfiles
 <p align="center">
-<a name="top" href="http://www.nextfaze.com"><img src="http://stylecampaign.com/blog/blogimages/SVG/fox.svg"></a>
+<a name="top" href="http://www.nextfaze.com"><img src="http://i.imgur.com/QPnD0FX.png"></a>
 </p>
 
 <p align="center">
