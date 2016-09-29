@@ -12,11 +12,11 @@
 [bitdeli]: https://bitdeli.com/free
 [dotfiles]: http://b4b4r07.com/dotfiles
 <p align="center">
-<a name="top" href="http://www.nextfaze.com"><img src="http://i.imgur.com/QPnD0FX.png"></a>
+<a name="top" href="http://www.nextfaze.com"><img src="https://drive.google.com/uc?export=view&id=0B449hyJ6tGcCN3VHTmlmSnkyNFk"></a>
 </p>
 
 <p align="center">
-<b><a href="https://drive.google.com/a/nextfaze.com/file/d/0B22Pt-mTDOHMZmpVUW9GdUtzZ1U/view?usp=sharing">Graph</a></b>
+<b><a href="http://drive.google.com/uc?export=view&id=0B449hyJ6tGcCYXRUamRkTTd6Z2c">Diagram</a></b>
 |
 <b><a href="#installing">Installing</a></b>
 |
@@ -35,7 +35,7 @@ BrushTail monitors the politeness of a conversations and provides real-time feed
 
 To add to your own slack team press  <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read,channels:history,channels:read&client_id=2437318132.73174124819"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
 
-then /invite @Brushtail on any channels you would like him to participate in.
+then `/invite @Brushtail` on any channels you would like him to participate in.
 
 ## Deploying from source
 
@@ -45,11 +45,11 @@ then /invite @Brushtail on any channels you would like him to participate in.
 4. edit your authorize.js, the url on line 70 to your slack app id
 5. `sls deploy -s prod --foxtype your_foxtype_key --token your_slack_token --secret your_slack_oauth-secret`
 6. press the add to slack button for you app. Found [here](https://api.slack.com/docs/slack-button)
-7. enjoy
+7. enjoy and play nice
     
-## logging
+## Logging
 
-Either in the AWS console or
+Either in the AWS console or via serverless cli:
 
     sls logs -f toFoxType -s prod
 
