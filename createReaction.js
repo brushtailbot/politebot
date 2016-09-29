@@ -27,40 +27,27 @@ function isPolite (score) {
   let highWater = 0.66
   let lowWater = 0.33
 
-  return score > highWater ? 'polite' : lowWater > score ? 'impolite' : 'neutral'
-}
-function reactionSwitch (reaction) {
-  switch (reaction) {
-    case 'polite':
-      return 'innocent'
-    case 'neutral':
-      return 'thumbsup'
-    case 'impolite':
-      return 'worried'
-    default:
-      return 'chilli'
-  }
+  return score > highWater ? 'innocent' : lowWater > score ? 'worried' : 'thumbsup'
 }
 // Core processData method
 module.exports.processData = (event, context, cb) => {
-  console.log(event)
+  console.log(JSON.stringify(event, null, 2))
   let records = event.Records.filter((record) => {
     return record.eventName === 'MODIFY'
   })
   if (records.length < 1) return
   records.forEach(record => {
     try {
-    var teamId = record.dynamodb.NewImage.team_id.S
-    var channelId = record.dynamodb.NewImage.channel_id.S
-    var timestamp = record.dynamodb.NewImage.timestamp.N
-    var rating = isPolite(record.dynamodb.NewImage.score.N)
-
+      var teamId = record.dynamodb.NewImage.team_id.S
+      var channelId = record.dynamodb.NewImage.channel_id.S
+      var timestamp = record.dynamodb.NewImage.timestamp.N
+      var rating = isPolite(+record.dynamodb.NewImage.score.N)
     } catch (err) {
-      console.log('There was a problemparsing the New Image')
-      return cb(err)
+      console.log('There was a problem parsing the New Image')
+      return
     }
     console.log(`Creating reaction for channel ${channelId} comment ${timestamp} in team ${teamId} with rating ${rating}`)
-
+    if (rating === 'thumbsup') return
     lambda.invoke({
       FunctionName: `brushtail-${process.env.SERVERLESS_STAGE}-toSlack`,
       Payload: JSON.stringify({
@@ -69,7 +56,7 @@ module.exports.processData = (event, context, cb) => {
         body: {
           channel: channelId,
           timestamp: timestamp,
-          name: reactionSwitch(rating),
+          name: rating,
           as_user: false,
           username: 'brushtail'
         }
@@ -77,9 +64,8 @@ module.exports.processData = (event, context, cb) => {
     }, (err, data) => {
       if (err) {
         console.log('There was an error', JSON.stringify(err, null, 2))
-        cb()
-        // context.done('err', err)
       }
     })
   })
+  cb()
 }

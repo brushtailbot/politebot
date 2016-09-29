@@ -7,10 +7,17 @@ require('dotenv').config({silent: true})
 module.exports.sendData = (event, context, cb) => {
     // For verifying the request url in SLACK
     // Sps://api.slack.com/events/url_verification
-  console.log(JSON.stringify(event, null, 2))
+  console.log('about to check for gold', JSON.stringify(event, null, 2))
+  let body = event.body
+  try {
+    var token = body.token
+  } catch (err) {
+    return context.fail('error')
+  }
   if (event.body.challenge) {
     return cb(null, event.body)
   }
+  if (!(token === process.env.SLACK_TOKEN)) return context.fail('Unauthorized')
   if (!event.body.event || event.body.event.type !== 'message') {
     return cb()
   }
