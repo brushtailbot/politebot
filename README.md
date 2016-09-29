@@ -1,7 +1,5 @@
 # BrushTail
-<a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read&client_id=2437318132.83678354932">
-    <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
-    </a>
+<a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read,channels:history,channels:read&client_id=2437318132.73174124819"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
 
 ![AppVeyor](https://img.shields.io/badge/serverless%3F-yes-green.svg)
 [![](https://img.shields.io/badge/awesome%3F-yes-red.svg)][vote]
@@ -20,15 +18,11 @@
 <p align="center">
 <b><a href="https://drive.google.com/a/nextfaze.com/file/d/0B22Pt-mTDOHMZmpVUW9GdUtzZ1U/view?usp=sharing">Graph</a></b>
 |
+<b><a href="#installing">Installing</a></b>
+|
 <b><a href="#deploying">Deploying</a></b>
 |
-<b><a href="#invoking">Invoking</a></b>
-|
 <b><a href="#logging">Logging</a></b>
-|
-<b><a href="#dynamo">Dynamo</a></b>
-|
-<b><a href="#communication">Communication</a></b>
 |
 <b><a href="#team">Team</a></b>
 </p>
@@ -39,20 +33,25 @@ BrushTail monitors the politeness of a conversations and provides real-time feed
 
 ## Installing
 
-To add to your own slack team press  <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read&client_id=2437318132.83678354932">
-    <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
-    </a>
-
+To add to your own slack team press  <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read,channels:history,channels:read&client_id=2437318132.73174124819"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
 
 then /invite @Brushtail on any channels you would like him to participate in.
 
 ## Deploying from source
 
 1. Follow the steps [here](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) to configure your AWS account in the terminal
-2. `npm install -g serverless`
-3. `sls deploy -s prod --foxtype your_foxtype_key --token your_slack_token --secret your_slack_oauth-secret`
-4. enjoy
+2. Create a new slack app [here](https://api.slack.com/apps?new_app=1)
+3. `npm install -g serverless`
+4. edit your authorize.js, the url on line 70 to your slack app id
+5. `sls deploy -s prod --foxtype your_foxtype_key --token your_slack_token --secret your_slack_oauth-secret`
+6. press the add to slack button for you app. Found [here](https://api.slack.com/docs/slack-button)
+7. enjoy
     
+## logging
+
+Either in the AWS console or
+
+    sls logs -f toFoxType -s prod
 
 ## Team
 
