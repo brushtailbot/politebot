@@ -39,7 +39,7 @@ BrushTail monitors the politeness of a conversations and provides real-time feed
 
 ## Installing
 
-To add to your own slack team press  <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,chat:write:user,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read&client_id=2437318132.83678354932">
+To add to your own slack team press  <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands,bot,mpim:read,mpim:write,im:read,im:write,reactions:write,reactions:read&client_id=2437318132.83678354932">
     <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
     </a>
 
