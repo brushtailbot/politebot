@@ -57,4 +57,4 @@ Either in the AWS console or
 
 [<img alt="henry" src="https://avatars3.githubusercontent.com/u/5061604?v=3&s=466" width="117">](https://github.com/henrystevens) |[<img alt="paul" src="https://pbs.twimg.com/profile_images/596420075818586112/2OL4JoPF.jpg" width="117">](https://www.google.com) |[<img alt="james" src="https://bitbucket-assetroot.s3.amazonaws.com/c/photos/2015/Jul/21/1981462265-5-sidewaiise-avatar.png" width="117">](https://www.google.com)
 :---: |:---: |:---: |:---: |:---: |:---: |
-[Henry Stevens](https://github.com/henrystevens) |[Paul Robinson](https://www.google.com) |[James Limmer](https://www.google.com) 
+[Henry Stevens](https://github.com/henrystevens) |Paul Robinson |James Limmer 
