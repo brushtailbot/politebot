@@ -33,57 +33,6 @@ module.exports.sendData = (event, context) => {
     }
     let slack = new Slack(data.Item.access_token)
 
-    /* Setting states for reactions
-    *
-    * @param token: string, Authentication token (Requires scope: `reactions:write`) **Required
-    * @param name: string, Reaction Emoji name **Required
-    * @param file: string?, File to add reaction to (optional)
-    * @param file_comment: string?, File comment to add reaction to.
-    * @param channel: string?, Channel where the message to add reaction to was posted. (optional)
-    * @param timestamp: decimal/datetime?, Timestamp of the message to add reaction to.
-    *
-    */
-
-    // var reactionData = {};
-    // switch (element.dynamodb.NewImage.avg.N) {
-    //   case 'polite':
-    //     reactionData = {
-    //       token: data.Item.access_token,
-    //       name: 'innocent',
-    //       channel: event.channel_id,
-    //       timestamp: element.dynamodb.NewImage.timestamp.N
-    //     }
-    //   case 'neutral':
-    //     reactionData = {
-    //       token: data.Item.access_token,
-    //       name: 'thumbsup',
-    //       channel: event.channel_id,
-    //       timestamp: element.dynamodb.NewImage.timestamp.N
-    //     }
-    //   case 'impolite':
-    //     reactionData = {
-    //       token: data.Item.access_token,
-    //       name: 'worried',
-    //       channel: event.channel_id,
-    //       timestamp: element.dynamodb.NewImage.timestamp.N
-    //     }
-    //   default:
-    //     reactionData = {
-    //       token: data.Item.access_token,
-    //       name: 'chilli',
-    //       channel: event.channel_id,
-    //       timestamp: element.dynamodb.NewImage.timestamp.N
-    //     }
-    // }
-
-    // // Add the reaction
-    // slack.api('reactions.add', reactionData, (err, res) => {
-    //   console.log('Error:');
-    //   if(err) console.log(err);
-    //   console.log('Result:');
-    //   console.log(res);
-    // });
-
     // Messaging service
     slack.api(event.slackCommand, event.body, (err, res) => {
       if (err) {
