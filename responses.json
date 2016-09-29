@@ -1,0 +1,32 @@
+{
+    "politeness": {
+        "polite": [
+            "Your politeness astounds us all.",
+            "Somebody's having a good day :)",
+            "How did you manage to become such a perfect human?",
+            "The gods will reward you for your positive auora.",
+            "Nice one!",
+            "Who's your daddy?",
+            "All Class.",
+            "I'll call you Sunny McSunshine from now on.",
+            "I can't think of many things nicer than what you just said.",
+            "Bringin your A-game today eh?",
+            "March on dear human, into the light of curteous communication.",
+            "Some people are rude. You are not one of them."
+        ],
+        "impolite": [
+            "Seriously, you could be a little nicer.",
+            "Watch your tone.",
+            "If I had a boot I'd kick you.",
+            "Watch your language.",
+            "Somebody woke up on the wrong side of the bed.",
+            "Seek enlightenment.",
+            "Breach of verbal security.",
+            "Danger will robinson... danger.",
+            "Communication fail.",
+            "You could be a little more polite you know.",
+            "Bridge the gap between yourself and decent human behaviour please.",
+            "You're simply the best... at being super rude."
+        ]
+    }
+}

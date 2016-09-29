@@ -1,0 +1,28 @@
+{
+  "name": "brushtail-slackbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "dependencies": {
+    "aws-sdk": "^2.5.3",
+    "dotenv": "^2.0.0",
+    "serverless-plugin-write-env-vars": "^1.0.1",
+    "slack-node": "^0.1.8",
+    "superagent": "^2.2.0"
+  },
+  "devDependencies": {
+    "snazzy": "^5.0.0",
+    "standard": "^8.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard --verbose | snazzy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://hstevensagain@bitbucket.org/nextfaze/brushtail-slackbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/nextfaze/brushtail-slackbot#readme"
+}

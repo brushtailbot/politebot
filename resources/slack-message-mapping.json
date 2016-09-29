@@ -1,0 +1,9 @@
+{  
+  "Type": "AWS::Lambda::EventSourceMapping",
+  "Properties": {
+    "BatchSize": 10,
+    "EventSourceArn" : { "Fn::GetAtt" : ["SlackMessages", "StreamArn"] },
+    "FunctionName" : { "Fn::GetAtt" : ["ToFoxTypeLambdaFunction", "Arn"] },
+    "StartingPosition" : "TRIM_HORIZON"
+  }
+}

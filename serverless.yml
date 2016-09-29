@@ -1,0 +1,96 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    v1.docs.serverless.com
+#
+# Happy Coding!
+# NOTE: update this with your service name
+custom: ${file(./serverless.env.yml)}
+service: brushtail
+region: ap-southeast-2
+provider:
+  name: aws
+  runtime: nodejs4.3
+  region: ap-southeast-2
+  iamRoleStatements:
+    $ref: ./resources/lambda-policy.json
+# you can add packaging information here
+#package:
+#  include:
+#    - include-me.js
+#  exclude:
+#    - exclude-me.js
+#  artifact: my-service-code.zip
+plugins:
+  - serverless-plugin-write-env-vars
+functions:
+  authorize:
+    handler: authorize.authorize
+    events:
+      - http:
+          path: slackbot/authorize
+          method: get
+          cors: true
+  toBrushTail:
+    handler: toBrushTail.sendData
+    events:
+      - http:
+          path: message/send
+          method: post
+          cors: true
+  getBrushTail:
+    handler: getBrushTail.getData
+    events:
+      - http:
+          path: message/get
+          method: get
+          cors: true
+  toFoxType:
+    handler: toFoxType.sendData
+  toSlack:
+    handler: toSlack.sendData
+  foxTypeModify:
+    handler: foxTypeModify.processData
+  slackbot:
+    handler: slackbot.processData
+  createReaction:
+    handler: createReaction.processData
+#   you can add any of the following events
+#   events:
+#     - http:
+#         path: users/create
+#         method: get
+#     - s3: ${bucket}
+#     - schedule: rate(10 minutes)
+#     - sns: greeter-topic
+
+
+# you can add CloudFormation resource templates here
+resources:
+  Resources:
+    SlackbotMapping:
+      $ref: ./resources/slackbot-mapping.json
+    SlackMessagesMapping:
+      $ref: ./resources/slack-message-mapping.json
+    SlackMessagesModifyMapping:
+      $ref: ./resources/modify-message-mapping.json
+    SlackMessages: 
+      $ref: ./resources/slack-message-db.json
+    Aggregate10: 
+      $ref: ./resources/aggregate-10-db.json
+    SlackTeam: 
+      $ref: ./resources/slack-team-db.json
+    ReactionMapping: 
+      $ref: ./resources/slack-message-reaction-mapping.json
+    # LambdaDynamoPolicy:
+    #   $ref: ./resources/lambda-policy.json
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"

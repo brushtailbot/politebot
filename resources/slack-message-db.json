@@ -1,0 +1,58 @@
+{
+    "Type" : "AWS::DynamoDB::Table",
+    "Properties" : {
+    "AttributeDefinitions" : [
+        {
+        "AttributeName" : "user_id",
+        "AttributeType" : "S"
+        },
+        {
+        "AttributeName" : "channel_id",
+        "AttributeType" : "S"
+        },
+        {
+        "AttributeName" : "timestamp",
+        "AttributeType" : "N"
+        }
+    ],
+    "KeySchema" : [
+        {
+        "AttributeName" : "user_id",
+        "KeyType" : "HASH"
+        },
+        {
+        "AttributeName" : "timestamp",
+        "KeyType" : "RANGE"
+        }
+    ],
+    "ProvisionedThroughput" : {
+        "ReadCapacityUnits" : "5",
+        "WriteCapacityUnits" : "5"
+    },
+    "StreamSpecification": {
+        "StreamViewType" : "NEW_IMAGE"
+    },
+    "TableName" : "${self:custom.service}-${opt:stage}-SlackMessage",
+    "GlobalSecondaryIndexes" : [{
+        "IndexName" : "UserChannelGSI",
+        "KeySchema" : [
+        {
+            "AttributeName" : "user_id",
+            "KeyType" : "HASH"
+        },
+        {
+            "AttributeName" : "channel_id",
+            "KeyType" : "RANGE"
+        }
+        ],                         
+        "Projection" : {
+        "NonKeyAttributes" : ["score", "timestamp"],
+        "ProjectionType" : "INCLUDE"
+        },
+        "ProvisionedThroughput" : {
+        "ReadCapacityUnits" : "5",
+        "WriteCapacityUnits" : "5"
+        }
+    }]
+    }
+}

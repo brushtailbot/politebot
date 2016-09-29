@@ -1,0 +1,9 @@
+{  
+  "Type": "AWS::Lambda::EventSourceMapping",
+  "Properties": {
+    "BatchSize": 10,
+    "EventSourceArn" : { "Fn::GetAtt" : ["Aggregate10", "StreamArn"] },
+    "FunctionName" : { "Fn::GetAtt" : ["SlackbotLambdaFunction", "Arn"] },
+    "StartingPosition" : "TRIM_HORIZON"
+  }
+}
