@@ -101,8 +101,8 @@ module.exports.authorize = (event, ctx) => {
       name: body.team_name,
       scope: body.scope,
       access_token: body.access_token,
-      bot_user_id: body.bot_user_id,
-      bot_access_token: body.bot_access_token,
+      bot_user_id: body.bot.bot_user_id,
+      bot_access_token: body.bot.bot_access_token,
       incoming_webhook_url: body.incoming_webhook.url,
       incoming_webhook_channel: body.incoming_webhook.channel,
       incoming_webhook_configuration_url: body.incoming_webhook.configuration_url

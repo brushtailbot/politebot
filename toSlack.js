@@ -27,11 +27,11 @@ module.exports.sendData = (event, context) => {
       return console.log('There was an Error ', JSON.stringify(err, null, 2))
     }
     console.log('Found this record ', JSON.stringify(data, null, 2))
-    if (!data.Item.access_token) {
-      console.log('This team has no access token')
+    if (!data.Item.bot_access_token) {
+      console.log('This team has no bot access token')
       return
     }
-    let slack = new Slack(data.Item.access_token)
+    let slack = new Slack(data.Item.bot_access_token)
 
     // Messaging service
     slack.api(event.slackCommand, event.body, (err, res) => {
